@@ -22,9 +22,10 @@
       <h1>OAuth2 Test</h1>
       <h4><b>Step 1:</b> Get the Auth URL</h4>
       <p>Click the button below to get your auth url.</p>
-      <button id="getCode">Get OAuth URL</button>
+      <button id="getURL">Get OAuth URL</button>
       <p id="result"></p>
       <a id="authURL" href target="_blank">Click to authorize</a>
+
       <h4>Step 2: Get your code and exchange for an access token</h4>
       <p>
         After you’re redirected back to your Meet app on GitHub, copy the code
@@ -44,7 +45,7 @@
     </main>
 
     <script type="text/javascript">
-      const getCodeElement = document.getElementById("getCode");
+      const getURLElement = document.getElementById("getURL");
       const resultElement = document.getElementById("result");
       const resultLink = document.getElementById("authURL");
       // Replace this with your own endpoint
@@ -52,7 +53,7 @@
         "https://qs0xavxl81.execute-api.us-west-1.amazonaws.com/dev/api/get-auth-url";
 
       //step 1
-      getCodeElement.onclick = function () {
+      getURLElement.onclick = function () {
         fetch(getAuthURL)
           .then(function (response) {
             return response.json();
@@ -76,7 +77,6 @@
 
       getAccessToken.onclick = function () {
         let code = codeValue.value;
-        console.log(code);
 
         // if the authorization code is not URL-encoded, then URL-encode it.
         if (decodeURIComponent(code) === code) {
@@ -102,6 +102,7 @@
         const { access_token } = JSON.parse(accessTokenElement.innerText);
         console.log(access_token);
         const eventRequest = getCalendarEvents + "/" + access_token;
+        console.log(eventRequest);
         fetch(eventRequest)
           .then(function (response) {
             return response.json();
