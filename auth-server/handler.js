@@ -46,11 +46,11 @@ module.exports.getAuthURL = async () => {
 };
 
 module.exports.getAccessToken = async (event) => {
-  const oAuth2Client = new google.auth.OAuth2(
-    client_id,
-    client_secret,
-    redirect_uris[0]
-  );
+  // const oAuth2Client = new google.auth.OAuth2(
+  //   client_id,
+  //   client_secret,
+  //   redirect_uris[0]
+  // );
 
   const code = decodeURIComponent(`${event.pathParameters.code}`);
 
@@ -82,16 +82,17 @@ module.exports.getAccessToken = async (event) => {
 };
 
 module.exports.getCalendarEvents = async (event) => {
-  const oAuth2Client = new google.auth.OAuth2(
-    client_id,
-    client_secret,
-    redirect_uris[0]
-  );
+  // const oAuth2Client = new google.auth.OAuth2(
+  //   client_id,
+  //   client_secret,
+  //   redirect_uris[0]
+  // );
 
-  const access_token = decodeURIComponent(`${event.pathParameters.code}`);
+  const access_token = decodeURIComponent(
+    `${event.pathParameters.access_token}`
+  );
   oAuth2Client.setCredentials({ access_token });
-  const idToken = oAuth2Client.credentials.id_token;
-  console.log(idToken);
+
   return new Promise((resolve, reject) => {
     calendar.events.list(
       {
