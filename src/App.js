@@ -3,11 +3,11 @@ import "./App.css";
 import EventList from "./EventList";
 import CitySearch from "./CitySearch";
 import { mockData } from "./mock-data";
+import { extractLocations } from "./api";
 
 class App extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       events: mockData,
     };
@@ -16,7 +16,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <CitySearch />
+        <CitySearch locations={extractLocations(mockData)} />
         <EventList events={this.state.events} />
       </div>
     );
