@@ -2,13 +2,14 @@ import React, { Component } from "react";
 import "./App.css";
 import EventList from "./EventList";
 import CitySearch from "./CitySearch";
+import { mockData } from "./mock-data";
 
 class App extends Component {
   constructor(props) {
     super(props);
 
     this.state = {
-      events: [{ id: 1 }, { id: 2 }, { id: 3 }, { id: 4 }],
+      events: mockData,
     };
   }
 
