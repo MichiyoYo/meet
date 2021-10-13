@@ -48,3 +48,16 @@ h2 {
   margin-bottom: 10px;
   margin-top: 10px;
 }
+
+.hide {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.show-details-btn,
+.hide-details-btn {
+  margin: auto;
+}
