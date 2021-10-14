@@ -8,21 +8,28 @@ import NumberOfEvents from "./NumberOfEvents";
 import { getEvents } from "./api";
 
 class App extends Component {
-  locations = extractLocations(mockData);
+  //locations = extractLocations(mockData);
   constructor(props) {
     super(props);
 
     this.state = {
-      events: mockData,
-      locations: this.locations,
+      events: [],
+      locations: {},
     };
+  }
+
+  componentDidMount() {
+    getEvents().then((events) => {
+      this.setState({ events, locations: extractLocations(events) });
+    });
   }
 
   updateEvents = (location) => {
     getEvents().then((events) => {
-      const locationEvents = events.filter(
-        (event) => event.location === location
-      );
+      const locationEvents =
+        location === "all"
+          ? events
+          : events.filter((event) => event.location === location);
       this.setState({
         events: locationEvents,
       });
