@@ -72,9 +72,7 @@ describe("<CitySearch /> component", () => {
   test("selecting CitySearch input reveals the suggestions list", () => {
     CitySearchWrapper.find(".city").simulate("focus");
     expect(CitySearchWrapper.state("showSuggestions")).toBe(true);
-    expect(CitySearchWrapper.find(".suggestions").prop("style")).not.toEqual({
-      display: "none",
-    });
+    expect(CitySearchWrapper.find(".suggestions").hasClass("show")).toBe(true);
   });
 
   test("selecting a suggestion should hide the suggestions list", () => {
@@ -84,8 +82,6 @@ describe("<CitySearch /> component", () => {
     });
     CitySearchWrapper.find(".suggestions li").at(0).simulate("click");
     expect(CitySearchWrapper.state("showSuggestions")).toBe(false);
-    expect(CitySearchWrapper.find(".suggestions").prop("style")).toEqual({
-      display: "none",
-    });
+    expect(CitySearchWrapper.find(".suggestions").hasClass("hide")).toBe(true);
   });
 });
