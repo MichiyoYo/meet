@@ -58,7 +58,12 @@ input[type="number"] {
   top: 43px;
   font-size: 14px;
   box-shadow: 10px 10px 16px -12px rgba(0, 0, 0, 0.75);
+  /* display: none; */
 }
+/* 
+.city.focus-visible + .suggestions {
+  display: block;
+} */
 
 .suggestions > li {
   text-align: left;
