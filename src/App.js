@@ -1,14 +1,11 @@
 import React, { Component } from "react";
-import "./App.css";
 import EventList from "./EventList";
 import CitySearch from "./CitySearch";
-import { mockData } from "./mock-data";
-import { extractLocations } from "./api";
 import NumberOfEvents from "./NumberOfEvents";
-import { getEvents } from "./api";
+import { extractLocations, getEvents } from "./api";
+import "./App.css";
 
 class App extends Component {
-  //locations = extractLocations(mockData);
   constructor(props) {
     super(props);
 
