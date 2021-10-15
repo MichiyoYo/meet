@@ -71,4 +71,24 @@ describe("<App /> integration", () => {
     expect(AppWrapper.state("events")).toEqual(allEvents);
     AppWrapper.unmount();
   });
+
+  test("change numberOfEvents state when NumberOfEvents changes", () => {
+    const AppWrapper = mount(<App />);
+    AppWrapper.setState({ numberOfEvents: 32 });
+    const numEventsInputWpapper = AppWrapper.find(NumberOfEvents);
+    const eventObject = { target: { value: 10 } };
+    numEventsInputWpapper.find(".num-events").simulate("change", eventObject);
+    expect(AppWrapper.state("numberOfEvents")).toEqual(10);
+  });
+
+  // test("get list of 32 events if user didn't specify a numberOfEvents", async () => {
+  //   const AppWrapper = mount(<App />);
+  //   AppWrapper.setState({ numberOfEvents: 32 });
+  //   const allEvents = await getEvents();
+  //   expect(AppWrapper.state("events")).toEqual(allEvents);
+  //   expect(AppWrapper.state("events").length).toEqual(32);
+  //   AppWrapper.unmount();
+  // });
+
+  //get list of n events where n is the numberOfEvents specified by the user
 });

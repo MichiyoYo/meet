@@ -44,19 +44,17 @@ const checkToken = async (accessToken) => {
 
 const getToken = async (code) => {
   const encodeCode = encodeURIComponent(code);
-  const { access_token } = await fetch(
-    "https://qs0xavxl81.execute-api.us-west-1.amazonaws.com/dev/api/token" +
-      "/" +
-      encodeCode
+  const { access_token: accessToken } = await fetch(
+    `https://qs0xavxl81.execute-api.us-west-1.amazonaws.com/dev/api/token/${encodeCode}`
   )
     .then((res) => {
       return res.json();
     })
     .catch((error) => error);
 
-  access_token && localStorage.setItem("access_token", access_token);
+  accessToken && localStorage.setItem("access_token", accessToken);
 
-  return access_token;
+  return accessToken;
 };
 
 export const getEvents = async () => {
@@ -69,10 +67,8 @@ export const getEvents = async () => {
 
   const token = await getAccessToken();
   if (token) {
-    removeQuery();
+    //removeQuery();
     const url = `https://qs0xavxl81.execute-api.us-west-1.amazonaws.com/dev/api/get-events/${token}`;
-
-    console.log(url);
 
     const result = await axios.get(url);
     if (result.data) {
