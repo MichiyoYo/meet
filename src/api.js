@@ -68,13 +68,12 @@ export const getEvents = async () => {
   }
 
   const token = await getAccessToken();
-  console.log(token);
   if (token) {
     removeQuery();
-    const url =
-      "https://qs0xavxl81.execute-api.us-west-1.amazonaws.com/dev/api/get-events" +
-      "/" +
-      token;
+    const url = `https://qs0xavxl81.execute-api.us-west-1.amazonaws.com/dev/api/get-events/${token}`;
+
+    console.log(url);
+
     const result = await axios.get(url);
     if (result.data) {
       var locations = extractLocations(result.data.events);
@@ -87,7 +86,7 @@ export const getEvents = async () => {
 };
 
 export const getAccessToken = async () => {
-  const accessToken = localStorage.getItem("accessToken");
+  const accessToken = localStorage.getItem("access_token");
 
   const tokenCheck = accessToken && (await checkToken(accessToken));
 
