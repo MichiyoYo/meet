@@ -1,3 +1,5 @@
+/* istanbul ignore file */
+
 import axios from "axios";
 import { mockData } from "./mock-data";
 import { NProgress } from "nprogress";
@@ -66,7 +68,7 @@ export const getEvents = async () => {
   }
 
   const token = await getAccessToken();
-
+  console.log(token);
   if (token) {
     removeQuery();
     const url =
