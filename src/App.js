@@ -14,6 +14,7 @@ class App extends Component {
       events: [],
       locations: {},
       numberOfEvents: 32,
+      currentLocation: "all",
     };
   }
 
@@ -30,21 +31,25 @@ class App extends Component {
     this.mounted = false;
   }
 
-  updateEvents = (location) => {
+  updateEvents = (location, numberOfEvents) => {
     getEvents().then((events) => {
       const locationEvents =
         location === "all"
           ? events
           : events.filter((event) => event.location === location);
+
+      const eventsToShow = locationEvents.slice(0, numberOfEvents);
       this.setState({
-        events: locationEvents,
+        events: eventsToShow,
+        currentLocation: location,
       });
     });
   };
 
-  updateNumberOfEvents = (e) => {
+  updateNumberOfEvents = async (e) => {
     const newVal = e.target.value ? parseInt(e.target.value) : 32;
-    this.setState({ numberOfEvents: newVal });
+    await this.setState({ numberOfEvents: newVal });
+    this.updateEvents(this.state.currentLocation, this.state.numberOfEvents);
   };
 
   render() {

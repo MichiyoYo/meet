@@ -29,7 +29,7 @@ describe("<App /> component", () => {
 
 describe("<App /> integration", () => {
   test('App passes "events" state as a prop to EventList', () => {
-    const AppWrapper = mount(<App />);
+    let AppWrapper = mount(<App />);
     const AppEventsState = AppWrapper.state("events");
     expect(AppEventsState).not.toEqual(undefined);
     expect(AppWrapper.find(EventList).props().events).toEqual(AppEventsState);
@@ -37,7 +37,7 @@ describe("<App /> integration", () => {
   });
 
   test('App passes "locations" state as a prop to CitySearch', () => {
-    const AppWrapper = mount(<App />);
+    let AppWrapper = mount(<App />);
     const AppLocationsState = AppWrapper.state("locations");
     expect(AppLocationsState).not.toEqual(undefined);
     expect(AppWrapper.find(CitySearch).props().locations).toEqual(
@@ -47,7 +47,7 @@ describe("<App /> integration", () => {
   });
 
   test("get list of events matching the city selected by the user", async () => {
-    const AppWrapper = mount(<App />);
+    let AppWrapper = mount(<App />);
     const CitySearchWrapper = AppWrapper.find(CitySearch);
     const locations = extractLocations(mockData);
     CitySearchWrapper.setState({ suggestions: locations });
@@ -64,7 +64,7 @@ describe("<App /> integration", () => {
   });
 
   test('get list of all events when user selects "See all cities"', async () => {
-    const AppWrapper = mount(<App />);
+    let AppWrapper = mount(<App />);
     const suggestionItems = AppWrapper.find(CitySearch).find(".suggestions li");
     await suggestionItems.at(suggestionItems.length - 1).simulate("click");
     const allEvents = await getEvents();
@@ -73,12 +73,20 @@ describe("<App /> integration", () => {
   });
 
   test("change numberOfEvents state when NumberOfEvents changes", () => {
-    const AppWrapper = mount(<App />);
+    let AppWrapper = mount(<App />);
     AppWrapper.setState({ numberOfEvents: 32 });
     const numEventsInputWpapper = AppWrapper.find(NumberOfEvents);
     const eventObject = { target: { value: 10 } };
     numEventsInputWpapper.find(".num-events").simulate("change", eventObject);
     expect(AppWrapper.state("numberOfEvents")).toEqual(10);
+    AppWrapper.unmount();
+  });
+
+  test("the default number of events rendered is 32", () => {
+    let AppWrapper = mount(<App />);
+    AppWrapper.setState({ numberOfEvents: 32 });
+    const EventListWrapper = AppWrapper.find(EventList);
+    AppWrapper.unmount();
   });
 
   // test("get list of 32 events if user didn't specify a numberOfEvents", async () => {
