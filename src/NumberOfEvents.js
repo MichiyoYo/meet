@@ -10,7 +10,7 @@ class NumberOfEvents extends Component {
           min="1"
           max="50"
           className="num-events"
-          value={this.props.NumberOfEvents}
+          value={this.props.numberOfEvents}
           onChange={(e) => this.props.updateNumberOfEvents(e)}
         />
       </div>

@@ -82,12 +82,28 @@ describe("<App /> integration", () => {
     AppWrapper.unmount();
   });
 
-  test("the default number of events rendered is 32", () => {
+  test("render the number of events specified in input", async () => {
     let AppWrapper = mount(<App />);
-    AppWrapper.setState({ numberOfEvents: 32 });
+    const allEvents = await getEvents();
+    const number = 20;
+    AppWrapper.setState({
+      events: allEvents.slice(0, number),
+      numberOfEvents: number,
+    });
+    const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
     const EventListWrapper = AppWrapper.find(EventList);
+    expect(NumberOfEventsWrapper.prop("numberOfEvents")).toEqual(number);
+    const eventArray = EventListWrapper.prop("events");
+    expect(eventArray.length).toEqual(number);
     AppWrapper.unmount();
   });
+
+  // test("when the NumberOfEvents changes to n it should show n events in EventList", () => {
+  //   let AppWrapper = mount(<App />);
+  //   const numberOfEvents = AppWrapper.find(NumberOfEvents);
+
+  //   AppWrapper.unmount();
+  // });
 
   // test("get list of 32 events if user didn't specify a numberOfEvents", async () => {
   //   const AppWrapper = mount(<App />);
