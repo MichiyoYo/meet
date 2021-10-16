@@ -1,11 +1,11 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
 import App from "../App";
-import EventList from "../EventList";
-import CitySearch from "../CitySearch";
-import NumberOfEvents from "../NumberOfEvents";
-import { mockData } from "../mock-data";
-import { extractLocations, getEvents } from "../api";
+import EventList from "../components/EventList";
+import CitySearch from "../components/CitySearch";
+import NumberOfEvents from "../components/NumberOfEvents";
+import { mockData } from "../helpers/mock-data";
+import { extractLocations, getEvents } from "../helpers/api";
 
 describe("<App /> component", () => {
   let AppWrapper;
@@ -91,13 +91,11 @@ describe("<App /> integration", () => {
       numberOfEvents: number,
     });
     const NumberOfEventsWrapper = AppWrapper.find(NumberOfEvents);
-
     expect(NumberOfEventsWrapper.prop("numberOfEvents")).toEqual(number);
-
     AppWrapper.unmount();
   });
 
-  test("render mockdata correctly", async () => {
+  test("the component EventList renders mockdata correctly", async () => {
     let AppWrapper = mount(<App />);
     const allEvents = await getEvents();
     const number = 10;
