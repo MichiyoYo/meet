@@ -5,7 +5,7 @@ class NumberOfEvents extends Component {
   render() {
     return (
       <div className="NumberOfEvents mt-40">
-        <h3>Select The Number Of Events</h3>
+        <h3>How Many Events?</h3>
         <RangeSlider
           min={1}
           max={50}
