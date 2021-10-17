@@ -1,17 +1,22 @@
 import React, { Component } from "react";
+import { Row, Col } from "react-bootstrap";
 import Event from "./Event";
 
 class EventList extends Component {
   render() {
     const { events } = this.props;
     return (
-      <ul className="EventList">
-        {events.map((event, index) => (
-          <li key={event.id}>
-            <Event event={event} />
-          </li>
-        ))}
-      </ul>
+      <Row className="d-flex justify-content-center">
+        <Col md={10} sm={12} className="event-list-wrapper">
+          <ul className="EventList row">
+            {events.map((event) => (
+              <li className="col-lg-3 col-md-4 col-sm-12" key={event.id}>
+                <Event event={event} />
+              </li>
+            ))}
+          </ul>
+        </Col>
+      </Row>
     );
   }
 }

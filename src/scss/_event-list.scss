@@ -1,0 +1,15 @@
+.event-list-wrapper {
+  .EventList {
+    max-height: 550px;
+    overflow: scroll;
+    @media screen and (max-width: $small) {
+      padding: 0;
+    }
+    li {
+      margin-bottom: 30px;
+      @media screen and (max-width: $small) {
+        padding: 0;
+      }
+    }
+  }
+}

@@ -1,7 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:500);
 .App {
   text-align: center;
-  padding: 2% 5%;
 }
 
 .App * {
@@ -82,12 +80,9 @@ input[type="number"] {
 }
 
 .event {
-  padding: 10px 10px 35px;
-  margin-bottom: 10px;
-  text-align: left;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  position: relative;
+  /* border: 1px solid #ccc;
+  border-radius: 4px; */
+  /* position: relative; */
 }
 
 .details-btn {
@@ -200,7 +195,6 @@ input[type="number"] {
   color: #fff;
   font-size: 14px;
   letter-spacing: 0.2px;
-  font-family: "Roboto";
 }
 
 @media only screen and (min-width: 992px) {
@@ -213,12 +207,4 @@ input[type="number"] {
     min-width: auto;
     margin: 0 auto;
   }
-}
-
-.hide {
-  display: none;
-}
-
-.show {
-  display: block;
 }

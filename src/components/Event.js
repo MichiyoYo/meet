@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Button } from "react-bootstrap";
 
 class Event extends Component {
   state = {
@@ -28,14 +29,16 @@ class Event extends Component {
         <p className="location">
           @{event.summary} | {event.location}
         </p>
-        <button
+
+        <Button
+          variant="primary"
           className={`show-details-btn ${
             this.state.collapsed ? "show" : "hide"
           }`}
           onClick={this.handleClickOnShowDetails}
         >
           Show Details
-        </button>
+        </Button>
         <div
           className={`extra-details ${this.state.collapsed ? "hide" : "show"}`}
         >
@@ -44,12 +47,14 @@ class Event extends Component {
             See details on Google Calendar
           </a>
           <p className="event-description">{event.description}</p>
-          <button
+
+          <Button
+            variant="primary"
             className="hide-details-btn"
             onClick={this.handleClickOnHideDetails}
           >
             Hide Details
-          </button>
+          </Button>
         </div>
       </div>
     );

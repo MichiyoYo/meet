@@ -1,0 +1,17 @@
+footer {
+  background: #00000042;
+  .row {
+    padding: 40px 20px;
+    @media screen and (max-width: $small) {
+      padding: 20px;
+    }
+  }
+  p,
+  a {
+    font-size: 12px;
+  }
+
+  p {
+    margin-bottom: 0;
+  }
+}

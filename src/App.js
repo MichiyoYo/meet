@@ -4,7 +4,12 @@ import CitySearch from "./components/CitySearch";
 import NumberOfEvents from "./components/NumberOfEvents";
 import { extractLocations, getEvents } from "./helpers/api";
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 import "./nprogress.css";
+import "./scss/styles.scss";
+import Header from "./components/Header";
+import { Container } from "react-bootstrap";
+import Footer from "./components/Footer";
 
 class App extends Component {
   constructor(props) {
@@ -60,15 +65,21 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <CitySearch
-          locations={this.state.locations}
-          updateEvents={this.updateEvents}
-        />
-        <NumberOfEvents
-          numberOfEvents={this.state.numberOfEvents}
-          updateNumberOfEvents={this.updateNumberOfEvents}
-        />
-        <EventList events={this.state.events} />
+        <Header />
+        <main>
+          <Container fluid>
+            <CitySearch
+              locations={this.state.locations}
+              updateEvents={this.updateEvents}
+            />
+            <NumberOfEvents
+              numberOfEvents={this.state.numberOfEvents}
+              updateNumberOfEvents={this.updateNumberOfEvents}
+            />
+            <EventList events={this.state.events} />
+          </Container>
+        </main>
+        <Footer />
       </div>
     );
   }
