@@ -5,6 +5,7 @@ body {
   width: 100vw;
   min-height: 100%;
   min-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -50,6 +51,7 @@ li {
 }
 
 p {
+  margin: 5px 0;
   margin-bottom: 10px;
   font-size: 15px;
 }
@@ -64,6 +66,11 @@ a {
     box-shadow: none;
     text-shadow: 0px 0px 10px $light-purple;
   }
+}
+
+ul {
+  padding: 0;
+  list-style: none;
 }
 
 #root {

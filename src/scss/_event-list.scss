@@ -5,7 +5,8 @@
     background: #fdb0601a;
     border-radius: 15px;
     @media screen and (max-width: $small) {
-      padding: 10px;
+      padding: 0;
+      background: transparent;
     }
     li {
       margin-bottom: 30px;

@@ -70,7 +70,7 @@ class App extends Component {
         <Header />
         <main>
           <Container fluid>
-            <Row className="d-flex justify-content-center">
+            <Row className="d-flex justify-content-center pt-0">
               <Col md={3} sm={10}>
                 <CitySearch
                   locations={this.state.locations}
