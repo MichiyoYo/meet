@@ -28,35 +28,38 @@ class CitySearch extends Component {
 
   render() {
     return (
-      <div className="CitySearch">
-        <input
-          type="text"
-          className="city"
-          value={this.state.query}
-          placeholder="Search by city"
-          onChange={this.handleInputChanged}
-          onFocus={() => this.setState({ showSuggestions: true })}
-        />
-        <ul
-          className="suggestions"
-          className={`suggestions ${
-            this.state.showSuggestions ? "show" : "hide"
-          }`}
-        >
-          {this.state.suggestions.map((suggestion) => (
-            <li
-              key={suggestion}
-              onClick={() => {
-                return this.handleItemClicked(suggestion);
-              }}
-            >
-              {suggestion}
+      <div className="city-search-wrapper">
+        <h2>Search</h2>
+        <div className="CitySearch">
+          <input
+            type="text"
+            className="city"
+            value={this.state.query}
+            placeholder="Enter a city or country"
+            onChange={this.handleInputChanged}
+            onFocus={() => this.setState({ showSuggestions: true })}
+          />
+          <ul
+            className="suggestions"
+            className={`suggestions ${
+              this.state.showSuggestions ? "show" : "hide"
+            }`}
+          >
+            {this.state.suggestions.map((suggestion) => (
+              <li
+                key={suggestion}
+                onClick={() => {
+                  return this.handleItemClicked(suggestion);
+                }}
+              >
+                {suggestion}
+              </li>
+            ))}
+            <li key="all" onClick={() => this.handleItemClicked("all")}>
+              <b>See all cities</b>
             </li>
-          ))}
-          <li key="all" onClick={() => this.handleItemClicked("all")}>
-            <b>See all cities</b>
-          </li>
-        </ul>
+          </ul>
+        </div>
       </div>
     );
   }

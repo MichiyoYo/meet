@@ -77,7 +77,7 @@ describe("<App /> integration", () => {
     AppWrapper.setState({ numberOfEvents: 32 });
     const numEventsInputWpapper = AppWrapper.find(NumberOfEvents);
     const eventObject = { target: { value: 10 } };
-    numEventsInputWpapper.find(".num-events").simulate("change", eventObject);
+    numEventsInputWpapper.find("input").simulate("change", eventObject);
     expect(AppWrapper.state("numberOfEvents")).toEqual(10);
     AppWrapper.unmount();
   });

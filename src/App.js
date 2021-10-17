@@ -3,13 +3,15 @@ import EventList from "./components/EventList";
 import CitySearch from "./components/CitySearch";
 import NumberOfEvents from "./components/NumberOfEvents";
 import { extractLocations, getEvents } from "./helpers/api";
+import Header from "./components/Header";
+import { Container, Row, Col } from "react-bootstrap";
+import Footer from "./components/Footer";
+
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
 import "./nprogress.css";
 import "./scss/styles.scss";
-import Header from "./components/Header";
-import { Container } from "react-bootstrap";
-import Footer from "./components/Footer";
 
 class App extends Component {
   constructor(props) {
@@ -68,14 +70,18 @@ class App extends Component {
         <Header />
         <main>
           <Container fluid>
-            <CitySearch
-              locations={this.state.locations}
-              updateEvents={this.updateEvents}
-            />
-            <NumberOfEvents
-              numberOfEvents={this.state.numberOfEvents}
-              updateNumberOfEvents={this.updateNumberOfEvents}
-            />
+            <Row className="d-flex justify-content-center">
+              <Col md={3} sm={10}>
+                <CitySearch
+                  locations={this.state.locations}
+                  updateEvents={this.updateEvents}
+                />
+                <NumberOfEvents
+                  numberOfEvents={this.state.numberOfEvents}
+                  updateNumberOfEvents={this.updateNumberOfEvents}
+                />
+              </Col>
+            </Row>
             <EventList events={this.state.events} />
           </Container>
         </main>

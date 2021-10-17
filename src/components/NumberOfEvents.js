@@ -1,14 +1,14 @@
 import React, { Component } from "react";
+import RangeSlider from "react-bootstrap-range-slider";
 
 class NumberOfEvents extends Component {
   render() {
     return (
-      <div className="NumberOfEvents">
-        <p>Number of Events</p>
-        <input
-          type="number"
-          min="1"
-          max="50"
+      <div className="NumberOfEvents mt-40">
+        <h3>Select The Number Of Events</h3>
+        <RangeSlider
+          min={1}
+          max={50}
           className="num-events"
           value={this.props.numberOfEvents}
           onChange={(e) => this.props.updateNumberOfEvents(e)}

@@ -79,12 +79,6 @@ input[type="number"] {
   background-color: #bcdcdb;
 }
 
-.event {
-  /* border: 1px solid #ccc;
-  border-radius: 4px; */
-  /* position: relative; */
-}
-
 .details-btn {
   position: absolute;
   right: 5px;
