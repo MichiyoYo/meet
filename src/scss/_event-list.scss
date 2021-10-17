@@ -1,9 +1,11 @@
 .event-list-wrapper {
   .EventList {
-    max-height: 550px;
+    max-height: 850px;
     overflow: scroll;
+    background: #fdb0601a;
+    border-radius: 15px;
     @media screen and (max-width: $small) {
-      padding: 0;
+      padding: 10px;
     }
     li {
       margin-bottom: 30px;

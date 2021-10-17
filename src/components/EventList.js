@@ -10,7 +10,7 @@ class EventList extends Component {
         <Col md={10} sm={12} className="event-list-wrapper">
           <ul className="EventList row">
             {events.map((event) => (
-              <li className="col-lg-3 col-md-4 col-sm-12" key={event.id}>
+              <li className="col-lg-3 col-md-6 col-sm-12" key={event.id}>
                 <Event event={event} />
               </li>
             ))}

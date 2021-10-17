@@ -29,16 +29,17 @@ h1 {
   font-size: 50px;
 }
 h2 {
-  font-size: 45px;
+  font-size: 30px;
+  margin-bottom: 15px;
 }
 h3 {
-  font-size: 35px;
+  font-size: 20px;
 }
 h4 {
-  font-size: 25px;
+  font-size: 17px;
 }
 h5 {
-  font-size: 23px;
+  font-size: 15px;
 }
 
 p,
@@ -48,8 +49,16 @@ li {
   color: $text-color !important;
 }
 
+p {
+  margin-bottom: 10px;
+  font-size: 15px;
+}
+
 a {
-  color: $pink;
+  color: #fff !important;
+  font-size: 15px;
+  margin-bottom: 10px;
+  display: inline-block;
   &:hover {
     color: $light-purple;
     box-shadow: none;

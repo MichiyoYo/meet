@@ -1,5 +1,11 @@
 .header-logo {
   img {
-    width: 500px;
+    width: 400px;
+    @media screen and (max-width: $small) {
+      width: 70%;
+    }
+    @media screen and (max-width: $x-small) {
+      width: 100%;
+    }
   }
 }
