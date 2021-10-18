@@ -27,4 +27,12 @@ describe("show/hide an event details", () => {
     const eventDetails = await page.$(".event .extra-details.show");
     expect(eventDetails).toBeDefined();
   });
+
+  test("User can collapse an event to hide its details", async () => {
+    await page.evaluate(() =>
+      document.querySelector(".hide-details-btn").click()
+    );
+    const eventDetails = await page.$(".event .extra-details.hide");
+    expect(eventDetails).toBeDefined();
+  });
 });
