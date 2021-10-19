@@ -1,6 +1,6 @@
 .Alert {
   width: max-content;
-  height: 30px;
+
   p {
     color: white;
     padding: 10px 20px;
@@ -21,8 +21,20 @@
   }
   &.error {
     margin: auto;
+    height: 30px;
     p {
       border-bottom: 3px solid #b2184c;
+    }
+  }
+  &.warning {
+    p {
+      padding: 5px 10px;
+      border-bottom: 3px solid #c97116;
+      position: absolute;
+      top: -22px;
+      right: 50%;
+      transform: translateX(50%);
+      margin-bottom: 0 !important;
     }
   }
   @media screen and (max-width: $small) {

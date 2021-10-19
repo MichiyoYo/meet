@@ -21,11 +21,11 @@ const mockData = [
       self: true,
     },
     start: {
-      dateTime: "2020-05-19T16:00:00+02:00",
+      dateTime: "2021-10-19T16:00:00+02:00",
       timeZone: "Europe/Berlin",
     },
     end: {
-      dateTime: "2020-05-19T17:00:00+02:00",
+      dateTime: "2021-10-19T17:00:00+02:00",
       timeZone: "Europe/Berlin",
     },
     recurringEventId: "4eahs9ghkhrvkld72hogu9ph3e",

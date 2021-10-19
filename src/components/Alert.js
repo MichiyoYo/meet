@@ -16,7 +16,7 @@ class Alert extends Component {
   render() {
     return (
       <div
-        className={`Alert ${this.props.text ? "visible" : "unvisible"} ${
+        className={`Alert ${this.props.text ? "visible" : "invisible"} ${
           this.type
         }`}
       >
@@ -42,4 +42,12 @@ class ErrorAlert extends Alert {
   }
 }
 
-export { InfoAlert, ErrorAlert };
+class WarningAlert extends Alert {
+  constructor(props) {
+    super(props);
+    this.background = "#ea8e2e";
+    this.type = "warning";
+  }
+}
+
+export { InfoAlert, ErrorAlert, WarningAlert };

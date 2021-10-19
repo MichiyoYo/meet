@@ -16,8 +16,8 @@
   visibility: visible !important;
 }
 
-.unvisible {
-  visibility: hidden;
+.invisible {
+  visibility: hidden !important;
 }
 
 @media screen and (max-width: 600px) {
