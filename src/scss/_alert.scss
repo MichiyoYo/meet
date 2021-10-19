@@ -1,5 +1,6 @@
 .Alert {
   width: max-content;
+  height: 30px;
   p {
     color: white;
     padding: 10px 20px;
@@ -19,6 +20,7 @@
     }
   }
   &.error {
+    margin: auto;
     p {
       border-bottom: 3px solid #b2184c;
     }

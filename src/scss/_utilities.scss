@@ -12,6 +12,14 @@
   display: inline-block !important;
 }
 
+.visible {
+  visibility: visible !important;
+}
+
+.unvisible {
+  visibility: hidden;
+}
+
 @media screen and (max-width: 600px) {
   .block-for-mobile {
     display: block !important;

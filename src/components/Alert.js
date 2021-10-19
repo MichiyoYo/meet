@@ -16,7 +16,9 @@ class Alert extends Component {
   render() {
     return (
       <div
-        className={`Alert ${this.props.text ? "show" : "hide"} ${this.type}`}
+        className={`Alert ${this.props.text ? "visible" : "unvisible"} ${
+          this.type
+        }`}
       >
         <p style={this.getStyle()}>{this.props.text}</p>
       </div>
