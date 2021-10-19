@@ -28,6 +28,12 @@ class Event extends Component {
     var timeStampYesterday = timeStamp - 24 * 3600;
     var endsSoon = endDate >= new Date(timeStampYesterday * 1000).getTime();
 
+    console.log(
+      "Event end date: " +
+        formatDate(endDate) +
+        ", today: " +
+        formatDate(new Date())
+    );
     return (
       <div className="event">
         {endsSoon ? <WarningAlert text="Ending soon!" /> : ""}

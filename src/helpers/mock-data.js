@@ -62,11 +62,11 @@ const mockData = [
       self: true,
     },
     start: {
-      dateTime: "2020-05-20T14:00:00+02:00",
+      dateTime: "2021-10-21T14:00:00+02:00",
       timeZone: "Europe/Berlin",
     },
     end: {
-      dateTime: "2020-05-20T15:00:00+02:00",
+      dateTime: "2021-10-21:00:00+02:00",
       timeZone: "Europe/Berlin",
     },
     recurringEventId: "3qtd6uscq4tsi6gc7nmmtpqlct",
@@ -103,11 +103,11 @@ const mockData = [
       self: true,
     },
     start: {
-      dateTime: "2020-05-21T16:00:00+02:00",
+      dateTime: "2021-10-20T16:00:00+02:00",
       timeZone: "Europe/Berlin",
     },
     end: {
-      dateTime: "2020-05-21T17:00:00+02:00",
+      dateTime: "2021-10-20T17:00:00+02:00",
       timeZone: "Europe/Berlin",
     },
     recurringEventId: "4eahs9ghkhrvkld72hogu9ph3e",
