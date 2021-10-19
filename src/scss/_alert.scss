@@ -1,20 +1,29 @@
 .Alert {
-  position: absolute;
-  top: -112px;
-  left: 50%;
-  transform: translateX(-50%);
   width: max-content;
-  @media screen and (max-width: $small) {
-    max-width: 340px;
-  }
   p {
     color: white;
-    background: #0d6efd;
     padding: 10px 20px;
     border-radius: 5px;
-    border-bottom: 2px solid #0b4eb2;
+
     @media screen and (max-width: $small) {
       font-size: 12px;
     }
+  }
+  &.info {
+    position: absolute;
+    top: -112px;
+    left: 50%;
+    transform: translateX(-50%);
+    p {
+      border-bottom: 3px solid #0b4eb2;
+    }
+  }
+  &.error {
+    p {
+      border-bottom: 3px solid #b2184c;
+    }
+  }
+  @media screen and (max-width: $small) {
+    max-width: 340px;
   }
 }
