@@ -43,6 +43,7 @@ const checkToken = async (accessToken) => {
 
 const getToken = async (code) => {
   const encodeCode = encodeURIComponent(code);
+  localStorage.setItem("code", encodeCode);
   const { access_token: accessToken } = await fetch(
     `https://qs0xavxl81.execute-api.us-west-1.amazonaws.com/dev/api/token/${encodeCode}`
   )
@@ -66,7 +67,7 @@ export const getEvents = async () => {
 
   const token = await getAccessToken();
   if (token) {
-    //removeQuery();
+    removeQuery();
     const url = `https://qs0xavxl81.execute-api.us-west-1.amazonaws.com/dev/api/get-events/${token}`;
 
     const result = await axios.get(url);
@@ -89,7 +90,8 @@ export const getAccessToken = async () => {
     await localStorage.removeItem("access_token");
     const searchParams = new URLSearchParams(window.location.search);
     const code = await searchParams.get("code");
-    if (!code) {
+    const currentCode = code ? code : localStorage.getItem("code");
+    if (!currentCode) {
       const results = await axios.get(
         "https://qs0xavxl81.execute-api.us-west-1.amazonaws.com/dev/api/get-auth-url"
       );

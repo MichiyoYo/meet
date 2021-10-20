@@ -53,7 +53,6 @@ class CitySearch extends Component {
             onFocus={() => this.setState({ showSuggestions: true })}
           />
           <ul
-            className="suggestions"
             className={`suggestions ${
               this.state.showSuggestions ? "show" : "hide"
             }`}

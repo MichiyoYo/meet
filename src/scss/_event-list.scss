@@ -1,5 +1,9 @@
 .event-list-wrapper {
   .EventList {
+    li {
+      display: flex;
+      flex-direction: column;
+    }
     max-height: 850px;
     overflow: scroll;
     background: #fdb0601a;
