@@ -34,7 +34,7 @@ class Event extends Component {
     const endDate = new Date(event.end.dateTime);
     return (
       <div className="event">
-        {this.isToday(endDate) ? <WarningAlert text="Ending soon!" /> : ""}
+        {this.isToday(endDate) ? <WarningAlert text="Today!" /> : ""}
 
         <h2 className="summary">{event.summary}</h2>
         <p className="start-date">
