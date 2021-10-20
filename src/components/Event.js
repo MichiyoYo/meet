@@ -20,23 +20,21 @@ class Event extends Component {
     });
   };
 
+  isToday = (someDate) => {
+    const today = new Date();
+    return (
+      someDate.getDate() == today.getDate() &&
+      someDate.getMonth() == today.getMonth() &&
+      someDate.getFullYear() == today.getFullYear()
+    );
+  };
   render() {
     const { event } = this.props;
 
     const endDate = new Date(event.end.dateTime);
-    var timeStamp = Math.round(new Date().getTime() / 1000);
-    var timeStampYesterday = timeStamp - 24 * 3600;
-    var endsSoon = endDate >= new Date(timeStampYesterday * 1000).getTime();
-
-    console.log(
-      "Event end date: " +
-        formatDate(endDate) +
-        ", today: " +
-        formatDate(new Date())
-    );
     return (
       <div className="event">
-        {endsSoon ? <WarningAlert text="Ending soon!" /> : ""}
+        {this.isToday(endDate) ? <WarningAlert text="Ending soon!" /> : ""}
 
         <h2 className="summary">{event.summary}</h2>
         <p className="start-date">
