@@ -70,6 +70,12 @@ export const getEvents = async () => {
     removeQuery();
     const url = `https://qs0xavxl81.execute-api.us-west-1.amazonaws.com/dev/api/get-events/${token}`;
 
+    if (!navigator.onLine) {
+      const data = localStorage.getItem("lastEvents");
+      nProgress.done();
+      return data ? JSON.parse(events).events : [];
+    }
+
     const result = await axios.get(url);
     if (result.data) {
       var locations = extractLocations(result.data.events);
