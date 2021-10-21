@@ -1,7 +1,12 @@
 footer {
   background: #00000042;
+  flex: 1 1 auto;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   .row {
-    padding: 40px 20px;
+    padding: 10px 20px;
     @media screen and (max-width: $small) {
       padding: 20px;
     }
