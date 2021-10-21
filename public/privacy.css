@@ -19,8 +19,7 @@ body {
     max-width: 90%;
   }
 }
-
-.header h1 {
+h1 {
   color: #fff !important;
   font-size: 46px;
 }
