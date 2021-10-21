@@ -6,7 +6,7 @@ footer {
   flex-direction: column;
   justify-content: center;
   .row {
-    padding: 10px 20px;
+    padding: 30px 20px;
     @media screen and (max-width: $small) {
       padding: 20px;
     }
@@ -18,5 +18,11 @@ footer {
 
   p {
     margin-bottom: 0;
+  }
+  .footer-slot {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
   }
 }
