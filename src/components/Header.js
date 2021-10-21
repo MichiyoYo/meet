@@ -1,6 +1,6 @@
 import React from "react";
 import { Row } from "react-bootstrap";
-import logo from "../images/logo2x.png";
+import logo from "../images/logo2x.webp";
 
 function Header(props) {
   return (
