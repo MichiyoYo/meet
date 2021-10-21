@@ -8,6 +8,7 @@ body {
   justify-content: center;
   padding: 20px;
   min-height: 100vh;
+  color: #fff !important;
 }
 .content {
   text-align: center;
@@ -19,13 +20,17 @@ body {
     max-width: 90%;
   }
 }
-
-.header h1 {
+h1 {
   color: #fff !important;
   font-size: 46px;
+  margin-bottom: 20px;
 }
 
 h2,
 p {
   color: #fff;
+}
+
+section {
+  padding-top: 30px;
 }
