@@ -18,6 +18,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
 import "./nprogress.css";
 import "./scss/styles.scss";
+import { mockData } from "./helpers/mock-data";
 
 class App extends Component {
   constructor(props) {
@@ -58,21 +59,7 @@ class App extends Component {
   }
 
   updateEvents = async (location, numberOfEvents) => {
-    const events = JSON.parse(localStorage.getItem("lastEvents")).events;
-    const updatedEvents = events ? events : await getEvents();
-    const locationEvents =
-      location === "all"
-        ? events
-        : events.filter((event) => event.location === location);
-
-    const eventsToShow = locationEvents.slice(0, numberOfEvents);
-    if (this.mounted) {
-      this.setState({
-        events: eventsToShow,
-        currentLocation: location,
-      });
-    }
-    /*getEvents().then((events) => {
+    getEvents().then((events) => {
       const locationEvents =
         location === "all"
           ? events
@@ -85,7 +72,7 @@ class App extends Component {
           currentLocation: location,
         });
       }
-    });*/
+    });
   };
 
   updateNumberOfEvents = async (e) => {
