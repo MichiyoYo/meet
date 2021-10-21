@@ -57,8 +57,22 @@ class App extends Component {
     this.mounted = false;
   }
 
-  updateEvents = (location, numberOfEvents) => {
-    getEvents().then((events) => {
+  updateEvents = async (location, numberOfEvents) => {
+    const events = JSON.parse(localStorage.getItem("lastEvents")).events;
+    const updatedEvents = events ? events : await getEvents();
+    const locationEvents =
+      location === "all"
+        ? events
+        : events.filter((event) => event.location === location);
+
+    const eventsToShow = locationEvents.slice(0, numberOfEvents);
+    if (this.mounted) {
+      this.setState({
+        events: eventsToShow,
+        currentLocation: location,
+      });
+    }
+    /*getEvents().then((events) => {
       const locationEvents =
         location === "all"
           ? events
@@ -71,7 +85,7 @@ class App extends Component {
           currentLocation: location,
         });
       }
-    });
+    });*/
   };
 
   updateNumberOfEvents = async (e) => {
