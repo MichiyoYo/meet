@@ -17,7 +17,7 @@ export const extractLocations = (events) => {
   return locations;
 };
 
-const checkToken = async (accessToken) => {
+export const checkToken = async (accessToken) => {
   const result = await fetch(
     `https://www.googleapis.com/oauth2/v1/tokeninfo?access_token=${accessToken}`
   )
@@ -58,6 +58,7 @@ export const getEvents = async () => {
 
   const token = await getAccessToken();
   if (token) {
+    //removeQuery();
     const url = `https://qs0xavxl81.execute-api.us-west-1.amazonaws.com/dev/api/get-events/${token}`;
 
     const result = await axios.get(url);
