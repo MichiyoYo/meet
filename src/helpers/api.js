@@ -65,16 +65,16 @@ export const getEvents = async () => {
     return mockData;
   }
 
+  if (!navigator.onLine) {
+    const data = localStorage.getItem("lastEvents");
+    nProgress.done();
+    return data ? JSON.parse(data).events : [];
+  }
+
   const token = await getAccessToken();
   if (token) {
     removeQuery();
     const url = `https://qs0xavxl81.execute-api.us-west-1.amazonaws.com/dev/api/get-events/${token}`;
-
-    if (!navigator.onLine) {
-      const data = localStorage.getItem("lastEvents");
-      nProgress.done();
-      return data ? JSON.parse(events).events : [];
-    }
 
     const result = await axios.get(url);
     if (result.data) {
