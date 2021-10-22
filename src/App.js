@@ -34,8 +34,8 @@ class App extends Component {
     super(props);
 
     this.state = {
-      events: [],
-      locations: {},
+      events: mockData,
+      locations: extractLocations(mockData),
       numberOfEvents: 32,
       currentLocation: "all",
       errorText: "",
@@ -101,16 +101,18 @@ class App extends Component {
   };
 
   getData = () => {
-    const { locations, events } = this.state;
+    if (this.mounted) {
+      const { locations, events } = this.state;
 
-    const data = locations.map((location) => {
-      const number = events.filter(
-        (event) => event.location === location
-      ).length;
-      const city = location.split(", ").shift();
-      return { city, number };
-    });
-    return data;
+      const data = locations.map((location) => {
+        const number = events.filter(
+          (event) => event.location === location
+        ).length;
+        const city = location.split(", ").shift();
+        return { city, number };
+      });
+      return data;
+    }
   };
 
   render() {
