@@ -12,6 +12,7 @@ describe("<App /> component", () => {
 
   beforeAll(() => {
     AppWrapper = shallow(<App />);
+    AppWrapper.setState({ showWelcomeScreen: false });
   });
 
   test("render list of events", () => {
@@ -30,6 +31,7 @@ describe("<App /> component", () => {
 describe("<App /> integration", () => {
   test('App passes "events" state as a prop to EventList', () => {
     let AppWrapper = mount(<App />);
+    AppWrapper.setState({ showWelcomeScreen: false });
     const AppEventsState = AppWrapper.state("events");
     expect(AppEventsState).not.toEqual(undefined);
     expect(AppWrapper.find(EventList).props().events).toEqual(AppEventsState);
@@ -38,6 +40,7 @@ describe("<App /> integration", () => {
 
   test('App passes "locations" state as a prop to CitySearch', () => {
     let AppWrapper = mount(<App />);
+    AppWrapper.setState({ showWelcomeScreen: false });
     const AppLocationsState = AppWrapper.state("locations");
     expect(AppLocationsState).not.toEqual(undefined);
     expect(AppWrapper.find(CitySearch).props().locations).toEqual(
@@ -48,6 +51,7 @@ describe("<App /> integration", () => {
 
   test("get list of events matching the city selected by the user", async () => {
     let AppWrapper = mount(<App />);
+    AppWrapper.setState({ showWelcomeScreen: false });
     const CitySearchWrapper = AppWrapper.find(CitySearch);
     const locations = extractLocations(mockData);
     CitySearchWrapper.setState({ suggestions: locations });
@@ -65,6 +69,7 @@ describe("<App /> integration", () => {
 
   test('get list of all events when user selects "See all cities"', async () => {
     let AppWrapper = mount(<App />);
+    AppWrapper.setState({ showWelcomeScreen: false });
     const suggestionItems = AppWrapper.find(CitySearch).find(".suggestions li");
     await suggestionItems.at(suggestionItems.length - 1).simulate("click");
     const allEvents = await getEvents();
@@ -74,7 +79,7 @@ describe("<App /> integration", () => {
 
   test("change numberOfEvents state when NumberOfEvents changes", () => {
     let AppWrapper = mount(<App />);
-    AppWrapper.setState({ numberOfEvents: 32 });
+    AppWrapper.setState({ showWelcomeScreen: false, numberOfEvents: 32 });
     const numEventsInputWpapper = AppWrapper.find(NumberOfEvents);
     const eventObject = { target: { value: 10 } };
     numEventsInputWpapper.find("input").simulate("change", eventObject);
@@ -84,6 +89,7 @@ describe("<App /> integration", () => {
 
   test("the state numberOfEvents is passed properly to the component NumberOfEvents", async () => {
     let AppWrapper = mount(<App />);
+    AppWrapper.setState({ showWelcomeScreen: false });
     const allEvents = await getEvents();
     const number = 20;
     AppWrapper.setState({
@@ -97,6 +103,7 @@ describe("<App /> integration", () => {
 
   test("the component EventList renders mockdata correctly", async () => {
     let AppWrapper = mount(<App />);
+    AppWrapper.setState({ showWelcomeScreen: false });
     const allEvents = await getEvents();
     const number = 10;
     AppWrapper.setState({

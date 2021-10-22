@@ -17,6 +17,7 @@ defineFeature(feature, (test) => {
     let AppWrapper;
     given("the user hasn't specified a number of events to display", () => {
       AppWrapper = mount(<App />);
+      AppWrapper.setState({ showWelcomeScreen: false });
     });
 
     when("the search is executed", () => {
@@ -41,6 +42,7 @@ defineFeature(feature, (test) => {
       "the user decides to see a different number n!=32 of events in the search results",
       () => {
         AppWrapper = mount(<App />);
+        AppWrapper.setState({ showWelcomeScreen: false });
       }
     );
 

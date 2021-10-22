@@ -35,7 +35,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      events: mockData,
+      events: mockData.slice(0, 32),
       locations: extractLocations(mockData),
       numberOfEvents: 32,
       currentLocation: "all",

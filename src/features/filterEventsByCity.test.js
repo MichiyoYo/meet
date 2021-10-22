@@ -18,6 +18,7 @@ defineFeature(feature, (test) => {
     let AppWrapper;
     when("the user opens the app", () => {
       AppWrapper = mount(<App />);
+      AppWrapper.setState({ showWelcomeScreen: false });
     });
 
     then("the user should see the list of upcoming events.", () => {
@@ -31,8 +32,12 @@ defineFeature(feature, (test) => {
     when,
     then,
   }) => {
+    let AppWrapper;
     let CitySearchWrapper;
     given("the main page is open", () => {
+      AppWrapper = mount(<App />);
+      AppWrapper.setState({ showWelcomeScreen: false });
+
       CitySearchWrapper = shallow(
         <CitySearch
           updateEvents={() => {}}
@@ -64,6 +69,8 @@ defineFeature(feature, (test) => {
     let AppWrapper;
     given("user was typing “Berlin” in the city textbox", async () => {
       AppWrapper = await mount(<App />);
+      AppWrapper.setState({ showWelcomeScreen: false });
+
       AppWrapper.find(".city").simulate("change", {
         target: { value: "Berlin" },
       });
