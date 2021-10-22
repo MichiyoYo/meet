@@ -139,7 +139,7 @@ class App extends Component {
                 />
               </Col>
             </Row>
-            <Row className="d-flex justify-content-center">
+            <Row className="d-flex justify-content-center charts-wrapper">
               <Col sm={12} md={10} lg={10}>
                 <div className="data-vis-wrapper">
                   <EventGenre events={this.state.events} />
@@ -148,8 +148,14 @@ class App extends Component {
                       margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
                     >
                       <CartesianGrid />
-                      <XAxis type="category" dataKey="city" name="city" />
+                      <XAxis
+                        tick={{ fill: "#fff" }}
+                        type="category"
+                        dataKey="city"
+                        name="city"
+                      />
                       <YAxis
+                        tick={{ fill: "#fff" }}
                         allowDecimals={false}
                         type="number"
                         dataKey="number"

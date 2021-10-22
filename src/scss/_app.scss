@@ -20,16 +20,16 @@
   font-family: sans-serif;
 }
 
-// .Alert {
-//   position: fixed;
-//   top: 20px;
-// }
-
+.charts-wrapper {
+  @media screen and (max-width: $small) {
+    background: #220b0b73;
+  }
+}
 .data-vis-wrapper {
   display: flex;
   align-items: center;
   flex-direction: column;
-  background: #ffffff61;
+  background: #220b0b73;
   padding: 20px 30px;
   border-radius: 20px;
   @media screen and (max-width: $small) {
