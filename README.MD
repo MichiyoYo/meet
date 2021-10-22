@@ -2,6 +2,12 @@
 
 Meet is a serverless, progressive web application (PWA) with React, built using a test-driven development (TDD) technique. The application uses the Google Calendar API to fetch upcoming events.
 
+## Demo
+
+[Click here for live demo](https://michiyoyo.github.io/meet/)
+
+<img src="https://github.com/MichiyoYo/meet/blob/main/demo/meet-demo.gif" alt="a gif that shows the functionalities of the app">
+
 ## Key Features
 
 - Filter events by city.
