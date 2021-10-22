@@ -21,6 +21,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
+import EventGenre from "./components/EventGenre";
 
 import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -139,23 +140,26 @@ class App extends Component {
               </Col>
             </Row>
             <Row className="d-flex justify-content-center">
-              <Col sm={12} md={10} lg={8} className="chart">
-                <ResponsiveContainer height={400}>
-                  <ScatterChart
-                    margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
-                  >
-                    <CartesianGrid />
-                    <XAxis type="category" dataKey="city" name="city" />
-                    <YAxis
-                      allowDecimals={false}
-                      type="number"
-                      dataKey="number"
-                      name="number of events"
-                    />
-                    <Tooltip cursor={{ strokeDasharray: "3 3" }} />
-                    <Scatter data={this.getData()} fill="#702ba0" />
-                  </ScatterChart>
-                </ResponsiveContainer>
+              <Col sm={12} md={10} lg={10}>
+                <div className="data-vis-wrapper">
+                  <EventGenre events={this.state.events} />
+                  <ResponsiveContainer height={400} className="scattered-chart">
+                    <ScatterChart
+                      margin={{ top: 20, right: 20, bottom: 20, left: 20 }}
+                    >
+                      <CartesianGrid />
+                      <XAxis type="category" dataKey="city" name="city" />
+                      <YAxis
+                        allowDecimals={false}
+                        type="number"
+                        dataKey="number"
+                        name="number of events"
+                      />
+                      <Tooltip cursor={{ strokeDasharray: "3 3" }} />
+                      <Scatter data={this.getData()} fill="#00bcd4" />
+                    </ScatterChart>
+                  </ResponsiveContainer>
+                </div>
               </Col>
             </Row>
             <EventList events={this.state.events} />
