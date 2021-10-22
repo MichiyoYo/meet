@@ -27,6 +27,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css";
 import "./nprogress.css";
 import "./scss/styles.scss";
+import { mockData } from "./helpers/mock-data";
 
 class App extends Component {
   constructor(props) {
@@ -101,6 +102,7 @@ class App extends Component {
 
   getData = () => {
     const { locations, events } = this.state;
+
     const data = locations.map((location) => {
       const number = events.filter(
         (event) => event.location === location
