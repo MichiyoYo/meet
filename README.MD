@@ -13,7 +13,7 @@ Meet is a serverless, progressive web application (PWA) built with React and dev
 - Unit Testing: Jest
 - Integration Testing: Jest
 - Acceptance Testing: Cucumber
-- End-to-end testing: Puppetteer
+- End-to-end testing: Puppeteer
 
 ## Installation
 
