@@ -8,6 +8,13 @@ Meet is a serverless, progressive web application (PWA) with React, built using 
 
 <img target="_blank" src="https://github.com/MichiyoYo/meet/blob/main/demo/meet-demo.gif" alt="a gif that shows the functionalities of the app">
 
+## Test Runners
+
+- Unit Testing: Jest
+- Integration Testing: Jest
+- Acceptance Testing: Cucumber
+- End-to-end testing: Puppetteer
+
 ## Installation
 
 To install the app and its dependencies run
